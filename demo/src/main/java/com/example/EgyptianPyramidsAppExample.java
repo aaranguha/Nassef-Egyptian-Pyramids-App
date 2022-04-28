@@ -132,6 +132,15 @@ public class EgyptianPyramidsAppExample {
     }
   }
 
+  private void displayPharaoh() {
+    for (int i = 0; i < pharaohArray.length; i++) {
+      printMenuLine();
+      pharaohArray[i].print();
+      printMenuLine();
+    }
+  }
+
+
   private Boolean executeCommand(Scanner scan, Character command) {
     Boolean success = true;
 
@@ -141,6 +150,9 @@ public class EgyptianPyramidsAppExample {
         break;
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
+        break;
+      case '2':
+        displayPharaoh();
         break;
       default:
         System.out.println("ERROR: Unknown commmand");
