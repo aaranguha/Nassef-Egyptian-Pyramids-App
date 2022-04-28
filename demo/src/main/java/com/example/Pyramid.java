@@ -5,16 +5,24 @@ public class Pyramid {
 
   protected Integer id;
   protected String name;
-  protected String[] contributors;
+  protected Object[] contributors;
 
   // constructor
   public Pyramid(
     Integer pyramidId,
     String pyramidName,
-    String[] pyramidContributors
+    Object[] pyramidContributors
   ) {
     id = pyramidId;
     name = pyramidName;
     contributors = pyramidContributors;
   }
+
+  // print pyramid
+  public void print() {
+    System.out.printf("Pharaoh %s\n", name);
+    System.out.printf("\tid: %d\n", id);
+    System.out.printf("\tContributors: %s\n", contributors);
+  }
+
 }

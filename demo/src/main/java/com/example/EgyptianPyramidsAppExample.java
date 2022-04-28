@@ -133,9 +133,13 @@ public class EgyptianPyramidsAppExample {
   }
 
   private void displayPharaoh() {
-    for (int i = 0; i < pharaohArray.length; i++) {
+    //edit
+  }
+
+  private void printAllPyramids() {
+    for (int i = 0; i < pyramidArray.length; i++) {
       printMenuLine();
-      pharaohArray[i].print();
+      pyramidArray[i].print();
       printMenuLine();
     }
   }
@@ -153,6 +157,9 @@ public class EgyptianPyramidsAppExample {
         break;
       case '2':
         displayPharaoh();
+        break;
+      case '3':
+        printAllPyramids();
         break;
       default:
         System.out.println("ERROR: Unknown commmand");
