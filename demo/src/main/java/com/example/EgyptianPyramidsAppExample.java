@@ -51,6 +51,7 @@ public class EgyptianPyramidsAppExample {
     initializePyramid(pyramidJSONArray);
 
   }
+  private static HashMap<Integer, String> hash_Pharaoh = new HashMap<Integer, String>();
 
   // initialize the pharaoh array
   private void initializePharaoh(JSONArray pharaohJSONArray) {
@@ -132,9 +133,11 @@ public class EgyptianPyramidsAppExample {
     }
   }
 
-  private void displayPharaoh() {
-    //edit
+  public static void displayPharaoh(Integer id) {
+    String specific_pharaoh = hash_Pharaoh.get(id);
+    System.out.printf("Specific pharaoh    : Id %s often says: %s\n", id, specific_pharaoh);
   }
+
 
   private void printAllPyramids() {
     for (int i = 0; i < pyramidArray.length; i++) {
@@ -156,7 +159,7 @@ public class EgyptianPyramidsAppExample {
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
         break;
       case '2':
-        displayPharaoh();
+        displayPharaoh(id);
         break;
       case '3':
         printAllPyramids();
