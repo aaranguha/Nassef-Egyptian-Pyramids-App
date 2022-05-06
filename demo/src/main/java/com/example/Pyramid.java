@@ -17,12 +17,24 @@ public class Pyramid {
     name = pyramidName;
     contributors = pyramidContributors;
   }
-
   // print pyramid
   public void print() {
-    System.out.printf("Pharaoh %s\n", name);
+    System.out.printf("Pyramid %s\n", name);
     System.out.printf("\tid: %d\n", id);
-    System.out.printf("\tContributors: %s\n", contributors);
+    for (int i = 0; i < contributors.length; i++){
+      Object cont = contributors[i];
+      System.out.printf("\tContributors: %s\n", cont);
+    }
   }
+  public String getname(){
+    return name;
+  }
+  public int get_id(){
+    return id;
+  }
+  public Object get_cont(){
+    return contributors;
+  }
+    
 
 }

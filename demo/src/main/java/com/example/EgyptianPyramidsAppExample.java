@@ -1,5 +1,5 @@
 package com.example;
-
+import java.util.HashSet;
 import java.util.*;
 import org.json.simple.*;
 
@@ -51,7 +51,6 @@ public class EgyptianPyramidsAppExample {
     initializePyramid(pyramidJSONArray);
 
   }
-  private static HashMap<Integer, String> hash_Pharaoh = new HashMap<Integer, String>();
 
   // initialize the pharaoh array
   private void initializePharaoh(JSONArray pharaohJSONArray) {
@@ -133,9 +132,15 @@ public class EgyptianPyramidsAppExample {
     }
   }
 
-  public static void displayPharaoh(Integer id) {
-    String specific_pharaoh = hash_Pharaoh.get(id);
-    System.out.printf("Specific pharaoh    : Id %s often says: %s\n", id, specific_pharaoh);
+  private void displayPharaoh(){
+    System.out.println("Enter a Pharaoh id");
+    Scanner scan = new Scanner(System.in);
+    while (!scan.hasNextInt()){
+      System.out.println("Error: The value entered is not an integer"); 
+      scan.nextLine();
+    }
+    int id = scan.nextInt();
+    pharaohArray[id].print();
   }
 
 
@@ -147,6 +152,42 @@ public class EgyptianPyramidsAppExample {
     }
   }
 
+  HashSet<Integer> i_d = new HashSet<Integer>();
+  HashSet<String> name = new HashSet<String>();
+  private void displayPyramid(){
+    System.out.println("Enter a Pyramid id");
+    Scanner scan = new Scanner(System.in);
+    while (!scan.hasNextInt()){
+      System.out.println("Error: The value entered is not an integer"); 
+      scan.nextLine();
+    }
+    int id_1 = scan.nextInt();
+    i_d.add(id_1);
+    for (int i = 0; i < pyramidArray.length; i++){
+      if (id_1 == pyramidArray[i].get_id()){
+        name.add(pyramidArray[i].getname());
+      }
+    }
+    pyramidArray[id_1].print();
+  }
+
+  
+  private void set_5(){
+    System.out.println("List of Requested Pyramids");
+    System.out.println(" Id    Name");
+    System.out.println("---  ---------");
+    Iterator itr = i_d.iterator();
+    Iterator itr_2 = name.iterator();
+    while (itr.hasNext()) {
+      System.out.print(' ');
+      System.out.print(itr.next());
+      for (int i = 0; i < 3; i++){
+        System.out.print(' ');
+      }
+      System.out.println(itr_2.next());
+    }
+  }
+  
 
   private Boolean executeCommand(Scanner scan, Character command) {
     Boolean success = true;
@@ -158,12 +199,18 @@ public class EgyptianPyramidsAppExample {
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
         break;
-      case '2':
-        displayPharaoh(id);
+      case '2':;
+        displayPharaoh();
         break;
       case '3':
         printAllPyramids();
         break;
+      case '4':
+        displayPyramid();
+        break;
+      case '5':
+        set_5();
+        break;  
       default:
         System.out.println("ERROR: Unknown commmand");
         success = false;
@@ -182,6 +229,8 @@ public class EgyptianPyramidsAppExample {
     );
   }
 
+
+
   // prints the menu
   public static void printMenu() {
     printMenuLine();
@@ -198,3 +247,7 @@ public class EgyptianPyramidsAppExample {
     printMenuLine();
   }
 }
+
+
+
+
